@@ -8,7 +8,7 @@ then
     apt purge fusioninventory* -y
     else
     echo "No FI Agent installed"
-fir
+fi
 if [ ! -f /etc/glpi-agent/agent.cfg ] && [ ! -f /etc/glpi-agent/conf.d/00-install.cfg ]
 then
     apt install -y wget
