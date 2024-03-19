@@ -16,5 +16,5 @@ then
     perl /tmp/glpi-agent-$giversion-linux-installer.pl --server="https://glpi.osrc.it/plugins/fusioninventory/,https://glpi.osrc.it/plugins/glpiinventory/" --tag=$fitag --service --install --runnow
     rm /tmp/glpi-agent-$giversion-linux-installer.pl
 else
-    echo GLPI Agent is already installed
+    echo "GLPI Agent is already installed"
 fi
