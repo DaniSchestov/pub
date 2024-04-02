@@ -13,7 +13,7 @@ if [ ! -f /etc/glpi-agent/agent.cfg ] && [ ! -f /etc/glpi-agent/conf.d/00-instal
 then
     apt install -y wget
     wget "https://github.com/glpi-project/glpi-agent/releases/download/$giversion/glpi-agent-$giversion-linux-installer.pl" -O /tmp/glpi-agent-$giversion-linux-installer.pl
-    perl /tmp/glpi-agent-$giversion-linux-installer.pl --server="https://glpi.osrc.it/plugins/fusioninventory/,https://glpi.osrc.it/plugins/glpiinventory/" --tag=$fitag --service --install --runnow
+    perl /tmp/glpi-agent-$giversion-linux-installer.pl --server="https://glpi.osrc.it/plugins/fusioninventory/,https://glpi.osrc.it/plugins/glpiinventory/" --tag=$fitag --type=all --service --install --runnow
     rm /tmp/glpi-agent-$giversion-linux-installer.pl
 else
     echo "GLPI Agent is already installed"
