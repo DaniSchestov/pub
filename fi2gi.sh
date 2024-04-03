@@ -1,5 +1,5 @@
 #!/bin/bash
-giversion="1.7.1"
+giversion="1.7.2"
 #Check if FI Agent is installed
 if [ -f /etc/fusioninventory/agent.cfg ]
 then
