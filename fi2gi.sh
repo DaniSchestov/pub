@@ -1,5 +1,8 @@
 #!/bin/bash
-giversion="1.7.2"
+
+giversion=$(curl 'https://github.com/glpi-project/glpi-agent/releases/latest' -si | sed -n '/^location.*/ s#.*/##1p')
+echo "GLPI Agent actual version "$giversion
+
 #Check if FI Agent is installed
 if [ -f /etc/fusioninventory/agent.cfg ]
 then
