@@ -1,6 +1,6 @@
 #!/bin/bash
 
-giversion=$(curl 'https://github.com/glpi-project/glpi-agent/releases/latest' -si | sed -n '/^location.*/ s#.*/##1p')
+giversion=$(curl 'https://github.com/glpi-project/glpi-agent/releases/latest' -si | sed -n 's/^location: .*\/\([^\/]*\)*$/\1/p' | tr -d '\r')
 echo "GLPI Agent actual version "$giversion
 
 #Check if FI Agent is installed
@@ -11,6 +11,7 @@ then
     apt purge fusioninventory* -y
     else
     echo "No FI Agent installed"
+    fitag="InvestTula"
 fi
 if [ ! -f /etc/glpi-agent/agent.cfg ] && [ ! -f /etc/glpi-agent/conf.d/00-install.cfg ]
 then
@@ -20,4 +21,3 @@ then
     rm /tmp/glpi-agent-$giversion-linux-installer.pl
 else
     echo "GLPI Agent is already installed"
-fi
